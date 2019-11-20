@@ -1,4 +1,5 @@
 const express = require('express')
+const apiController = require('./controllers/api')
 
 const PORT = 3000
 
@@ -9,5 +10,7 @@ app.get('/', (req, res, next) => {
 })
 
 app.use(express.static('public'))
+
+app.use('/api', apiController)
 
 app.listen(PORT, () => console.log('Server en puerto ' + PORT))
