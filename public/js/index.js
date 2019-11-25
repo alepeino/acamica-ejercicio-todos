@@ -13,7 +13,9 @@ form.addEventListener('submit', function (e) {
 })
 
 function listarTodos () {
-  //...
+  axios.get('http://localhost:3000/api/todos')
+    .then(respuesta => actualizarLista(respuesta.data))
+    .catch(error => console.log('error', error))
 }
 
 function agregarTodo (descripcion) {
@@ -22,7 +24,7 @@ function agregarTodo (descripcion) {
     { descripcion }
   )
     .then(respuesta => {
-      console.log('ok', respuesta)
+      listarTodos()
     })
     .catch(error => console.log('error', error))
 }
@@ -34,3 +36,5 @@ function marcarComoHecho (todo) {
 function actualizarLista(todos) {
   todosList.innerHTML = ejs.render(todosTemplate.text, { todos })
 }
+
+listarTodos()

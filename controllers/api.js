@@ -5,6 +5,10 @@ const router = express.Router()
 
 const lista = []
 
+router.get('/todos', (req, res) => {
+  res.send(lista)
+})
+
 router.post('/todos', (req, res) => {
   const descripcion = req.body.descripcion
   const todo = new Todo(descripcion)
