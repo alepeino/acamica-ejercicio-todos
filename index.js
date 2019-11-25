@@ -5,6 +5,8 @@ const PORT = 3000
 
 const app = express()
 
+app.use(express.json())
+
 app.get('/', (req, res, next) => {
   res.sendFile(__dirname + '/views/app.html')
 })

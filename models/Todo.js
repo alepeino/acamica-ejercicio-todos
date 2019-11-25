@@ -1,6 +1,7 @@
 class Todo {
-  constructor () {
-    //...
+  constructor (descripcion) {
+    this.descripcion = descripcion
+    this.completado = false
   }
 }
 
