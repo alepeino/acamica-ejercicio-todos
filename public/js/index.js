@@ -12,6 +12,16 @@ form.addEventListener('submit', function (e) {
   agregarTodo(descripcion)
 })
 
+todosList.addEventListener('change', function (e) {
+  if (e.target.matches('input[type=checkbox]')) {
+    const id = e.target.dataset.id
+    const completado = e.target.checked
+
+    // llamar a api pasando id y completado
+    // luego refrescar lista
+  }
+})
+
 function listarTodos () {
   axios.get('http://localhost:3000/api/todos')
     .then(respuesta => actualizarLista(respuesta.data))

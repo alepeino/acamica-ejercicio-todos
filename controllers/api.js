@@ -16,4 +16,9 @@ router.post('/todos', (req, res) => {
   res.send(todo)
 })
 
+router.put('/todos/:id', (req, res) => {
+  // actualizar el elemento con id = req.params.id
+  // luego devolverlo con res.send
+})
+
 module.exports = router
