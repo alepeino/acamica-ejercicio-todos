@@ -14,7 +14,7 @@
         <% todos.forEach(function (todo, i) { %>
             <li class="flex justify-between items-center p-1 border border-green-600 <%= i !== 0 && 'border-t-0' %>">
                 <p class="flex-1 text-left"><%= todo.descripcion %></p>
-                <input type="checkbox" class="block">
+                <input data-id="<%= todo.id %>" type="checkbox" class="block">
             </li>
         <% }) %>
     </script>

@@ -11,7 +11,7 @@ router.get('/todos', (req, res) => {
 
 router.post('/todos', (req, res) => {
   const descripcion = req.body.descripcion
-  const todo = new Todo(descripcion)
+  const todo = new Todo(lista.length + 1, descripcion)
   lista.push(todo)
   res.send(todo)
 })
