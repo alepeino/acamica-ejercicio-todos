@@ -17,8 +17,12 @@ todosList.addEventListener('change', function (e) {
     const id = e.target.dataset.id
     const completado = e.target.checked
 
-    // llamar a api pasando id y completado
-    // luego refrescar lista
+    axios.put(
+      'http://localhost:3000/api/todos/' + id,
+      { completado: completado }
+    )
+      .then(respuesta => listarTodos())
+      .catch(error => console.log('error', error))
   }
 })
 

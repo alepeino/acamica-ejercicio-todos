@@ -17,8 +17,18 @@ router.post('/todos', (req, res) => {
 })
 
 router.put('/todos/:id', (req, res) => {
-  // actualizar el elemento con id = req.params.id
-  // luego devolverlo con res.send
+  const id = req.params.id
+  const completado = req.body.completado
+
+  for (var i = 0; i < lista.length; i++) {
+    if (String(lista[i].id) === id) {
+      lista[i].completado = completado
+      res.send(lista[i])
+      return
+    }
+  }
+
+  res.status(404).send('No hay ToDo con ese id')
 })
 
 module.exports = router
